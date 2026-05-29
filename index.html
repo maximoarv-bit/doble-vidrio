@@ -303,6 +303,11 @@ function handleSubmit(){
     else document.getElementById('phoneInput').focus();
     return;
   }
+  fetch('https://doblevidriopadel.app.n8n.cloud/webhook/lead-doblevidrio',{
+    method:'POST',
+    headers:{'Content-Type':'application/json'},
+    body:JSON.stringify({nombre:name,whatsapp:phone})
+  }).catch(function(){});
   document.getElementById('contactForm').style.display='none';
   document.getElementById('successMsg').style.display='block';
   document.getElementById('formNote').style.display='none';
